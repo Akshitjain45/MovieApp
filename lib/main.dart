@@ -34,6 +34,21 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
+  String numberValidator(String value) {
+    
+    const pattern = '^\d{4}';
+    final regExp = RegExp(pattern);
+
+    if (!regExp.hasMatch(value)) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                content: Text("NO MOVIES!!"),
+              ));
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     final yearController = TextEditingController();
@@ -56,9 +71,10 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(bottom: 20, top: 100),
-                  child: TextField(
+                  child: TextFormField(
                     controller: yearController,
                     keyboardType: TextInputType.number,
+                    validator: numberValidator,
                     decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
@@ -84,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 RaisedButton(
                   onPressed: () {
                     int year = int.parse(yearController.text);
-                    if (year <= DateTime.now().year && year>1500) {
+                    if (year <= DateTime.now().year && year > 1500) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -126,13 +142,4 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             )));
   }
-}  
-
-
-
-
-
-
-
-
-
+}
