@@ -100,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 RaisedButton(
                   onPressed: () {
                     int year = int.parse(yearController.text);
-                    if (year <= DateTime.now().year && year > 1500) {
+                    if (year <= DateTime.now().year && year > 1930) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
