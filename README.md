@@ -17,6 +17,6 @@ A flutter based app that displays the top 20 movies and their details sorted by 
 
 ## To run this app
 * Obtain api key from <a href ="https://www.themoviedb.org/">TMDB</a>.
-* Replace YOUR_API_KEY in api_constants.dart with your api key.
+* Replace YOUR_API_KEY in constants/constants.dart with your api key.
 * Run the app with <b>flutter run</b>
 
